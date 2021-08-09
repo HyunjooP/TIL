@@ -8,7 +8,7 @@
 
 ## 2. 파이썬 라이브러리를 활용한 데이터 처리 
 
-- Python
+- [Python](https://github.com/HyunjooP/TIL/tree/master/PYTHON)
 - Numpy
 - Pandas
 - Matplotlib
@@ -37,8 +37,10 @@
 
 ### 5.1 UI/UX
 
-### 5.2 GitHub 
+### 5.2 [GitHub](https://github.com/HyunjooP/TIL/tree/master/GitHub) 
+
+- #### [MARKDOWN](https://github.com/HyunjooP/TIL/tree/master/MARKDOWN)
 
 ### 5.3 알고리즘
 
-# TIL
+# 

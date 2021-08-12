@@ -406,3 +406,169 @@ df3.apply(pd.value_counts).fillna(0.0).astype(int)
 df2 = df1.set_index("C1")
 ```
 
+
+
+
+
+
+
+
+
+## 6. 데이터프레임 합성
+
+두 프레임을 merge하거나 concatenate하는 것
+
+
+
+### Merge 함수
+
+- Inner Join : 두 개 프레임의 공통 데이터
+- 1번 프레임을 출력하는 것 Left outer join
+- 2번 프레임을 출력하는 것 Right outer join
+- 전부 다 합친 것 Full outer join
+
+```
+# Inner join
+
+pd.merge(df1, df2)    # how = inner
+pd.merge(df1, df2, how ='left')
+pd.merge(df1, df2, how='right')
+pd.merge(df1, df2, how='outer') # Full outer join
+```
+
+
+
+
+
+기준 열이 아니면서 이름이 같은 열에는 `_x` 또는 `_y` 와 같은 접미사
+
+```
+pd.merge(df1, df2, on='고객명')
+```
+
+
+
+### Join 메서드
+
+```
+df1.join(df2, how='outer')
+```
+
+```
+df2.set_index('고객번호', inplace=True)
+```
+
+
+
+### Concat 함수(데이터 연결)
+
+```
+pd.concat([s1, s2])
+# 위 아래로 붙임
+```
+
+```
+pd.concat([df1, df2], axis=1)
+# 가로로 붙임
+```
+
+
+
+
+
+
+
+## 7. 데이터 프레임 그룹 분석
+
+### 피벗 메서드
+
+```
+df1.pivot("도시", "연도", "인구")
+# 행 인덱스, 열 인덱스, 데이터
+```
+
+
+
+### groupby 메서드
+
+```
+iris = sns.load_dataset('iris')
+iris.groupby(iris.species).mean()
+```
+
+
+
+- agg 메서드
+- apply 메서드
+
+
+
+### Pivot table
+
+Pivot과 Groupby의 중간 성격
+
+```
+df1.pivot_table('인구','도시','연도')
+df1.pivot_table('인구','도시','연도', margins=True, margins_name="합계")
+```
+
+
+
+### tips dataset 사례
+
+```
+tips = sns.load_dataset('tips')
+tips.head()
+```
+
+```
+# tip_pct 열 추가
+tips['tip_pct'] = tips['tip'] / tips['total_bill']
+tips.tail()
+```
+
+```
+# NaN 데이터가 없을 때
+tips.groupby('sex').size()
+```
+
+```
+# 성별에 따른 평균 팁 비율
+tips.groupby('sex')[['tip_pct']].mean()
+```
+
+```
+# 성별과 흡연 여부에 따른 평균 팁 비율
+tips.groupby(['sex','smoker'])[['tip_pct']].mean()
+```
+
+
+
+## 8. 시계열 자료
+
+### DatetimeIndex 인덱스
+
+```
+date_str = ["2021, 8, 12", "2021-8-12", "20210812", "2021.8.12", '081221', '12/8/21']
+idx = pd.to_datetime(date_str)
+# 다양한 형태
+```
+
+```
+# day
+pd.date_range('20210801', periods=31)
+```
+
+```
+# Biz day
+pd.date_range('20210801', '20210831', freq='B')
+```
+
+
+
+### resample 연산
+
+시간 간격을 재조정하는 리샘플링(resampling)이 
+
+업-샘플링(up-sampling), 다운-샘플링(down-sampling)
+

@@ -340,3 +340,71 @@ sns.barplot(x="day", y="total_bill", hue="sex", data=tips)
 
 
 
+## 6. 판다스 시각화
+
+
+
+### Line plot
+
+시각화 메서드 plot()
+
+```
+df1.plot()
+```
+
+
+
+### Bar chart
+
+메서드로 구현
+
+```
+iris[:5].plot.bar(rot=0)
+```
+
+```
+.plot(kind='bar', rot=0, color=plt.get_cmap('RdBu')(np.linspace(0.8,0.2,20)))
+```
+
+```
+plt.ylim(0,7) # 범례 위치조정
+```
+
+
+
+### 그룹 분석
+
+```
+df2 = iris.groupby(iris.species).mean()
+df2.columns.name = "feature"
+
+df2.T.plot.bar(rot=0)		# 그룹분석
+```
+
+
+
+### Pie chart
+
+```
+df3.plot.pie(autopct='%.2f%%')
+plt.axis('equal')
+```
+
+
+
+### Histogram
+
+```
+iris.plot.hist()
+```
+
+
+
+### Box plot
+
+```
+iris.plot.box()
+```
+
+
+

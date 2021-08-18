@@ -217,3 +217,26 @@ from urllib.parse import quote
 
 
 
+
+
+
+
+
+
+## 5. Selenium
+
+Selenium 설치
+
+```
+conda activate base
+conda install selenium
+```
+
+
+
+크롬드라이버 다운로드 https://sites.google.com/a/chromium.org/chromedriver/downloads
+
+
+
+
+

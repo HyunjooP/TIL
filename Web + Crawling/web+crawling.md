@@ -754,3 +754,17 @@ plt.axis('off')
 plt.show()
 ```
 
+
+
+
+
+# 10. 서울시 공원 데이터 가져오기
+
+
+
+csv 파일 깨질때
+
+```
+df = pd.read_csv(filename, encoding='euc-kr')
+```
+

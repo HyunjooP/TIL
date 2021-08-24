@@ -1,4 +1,8 @@
-# MySQL
+# ySQL
+
+
+
+## 설치
 
 
 
@@ -22,7 +26,7 @@ colab에서 사용 시 설치
 
 
 
-부팅 후 moba에 들어와서 
+부팅 후 moba에 들어와서 ip4mysql 실행(HeidiSQL 접속이 가능해짐)
 
 ```
 sudo ./ip4mysql
@@ -37,4 +41,40 @@ echo iptables -I INPUT 5 -i ens3 -p tcp --dport 3306 -m state --state NEW,ESTABL
 
 
 
+
+## 데이터 조작
+
+- 실행 시에 F9
+
+
+
+- 기본 명령어 
+
+| SHOW   | 테이블, 데이터 조회 |
+| ------ | ------------------- |
+| CREATE | 테이블 생성         |
+| SELECT | 테이블, 데이터 조회 |
+| INSERT | 레코드 삽입         |
+| UPDATE | 데이터 업데아트     |
+| DELETE | 레코드 삭제         |
+| DROP   | 데이터 삭제         |
+| ALTER  | 정보를 수정         |
+
+
+
+
+
+- 데이터 조작
+
+| WHERE        | 조건 설정<br />select * from city where countrycode='kor';   |
+| ------------ | ------------------------------------------------------------ |
+| 범위설정     | select * from city where district='kyonggi' and population>500000; |
+| ORDER BY     | 정렬 조건 입력<br />ASC : 오름차순, DESC: 내림차순<br />select * from city where district='kyonggi' order by name desc; |
+| COUNT        | 데이터의 개수<br />select count(*) from city where countrycode='kor'; |
+| SUM          | 데이터의 합계<br />select sum(population) from city where countrycode='kor'; |
+| AVG          | 데이터의 평균<br />select avg(population) from city where countrycode='kor'; |
+| MAX          | 데이터의 MAX값<br />select max(population) from city;        |
+| MIN          | 데이터의 MIN값<br />select min(population) from city;        |
+| group_concat | 그룹으로 보기<br />select group_concat(name) from city where district='chungchongnam'; |
+| group by     | <br />select * from city where countrycode='kor' group by district; |
 

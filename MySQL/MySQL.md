@@ -1,4 +1,4 @@
-# ySQL
+# MySQL
 
 
 
@@ -16,7 +16,7 @@ MobaXterm 설치 https://mobaxterm.mobatek.net/download-home-edition.html
 
 mcuser Mysql11!
 
-
+MySQL 참고 https://www.w3schools.com/mysql/mysql_limit.asp  
 
 colab에서 사용 시 설치
 
@@ -55,12 +55,12 @@ echo iptables -I INPUT 5 -i ens3 -p tcp --dport 3306 -m state --state NEW,ESTABL
 | CREATE | 테이블 생성         |
 | SELECT | 테이블, 데이터 조회 |
 | INSERT | 레코드 삽입         |
-| UPDATE | 데이터 업데아트     |
+| UPDATE | 데이터 업데이트     |
 | DELETE | 레코드 삭제         |
 | DROP   | 데이터 삭제         |
 | ALTER  | 정보를 수정         |
 
-
+- distinct 중복제외
 
 
 
@@ -77,4 +77,9 @@ echo iptables -I INPUT 5 -i ens3 -p tcp --dport 3306 -m state --state NEW,ESTABL
 | MIN          | 데이터의 MIN값<br />select min(population) from city;        |
 | group_concat | 그룹으로 보기<br />select group_concat(name) from city where district='chungchongnam'; |
 | group by     | <br />select * from city where countrycode='kor' group by district; |
+| date_format  | date_format(dt, '%Y-%m-%d')                                  |
+|              |                                                              |
+|              |                                                              |
+|              |                                                              |
+|              |                                                              |
 

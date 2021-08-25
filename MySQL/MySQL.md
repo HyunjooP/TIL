@@ -83,3 +83,86 @@ echo iptables -I INPUT 5 -i ens3 -p tcp --dport 3306 -m state --state NEW,ESTABL
 |              |                                                              |
 |              |                                                              |
 
+
+
+
+
+### 테이블 조작
+
+```
+create table if not exists address_book (
+no int unsigned not null auto_increment,
+`name` varchar(10) not null,
+tel varchar(14),
+nickname varchar(20) default ‘별명’,
+primary key(no)
+) auto_increment=10001;
+desc address_book;
+```
+
+- if not exists : 없으면 만들기
+
+- desc: 구조확인
+
+| Field    | Type         | Null | Key  | Default | Extra          |
+| -------- | ------------ | ---- | ---- | ------- | -------------- |
+| no       | int unsigned | NO   | PRI  | (NULL)  | auto_increment |
+| name     | varchar(20)  | NO   |      | (NULL)  |                |
+| tel      | varchar(20)  | YES  |      | (NULL)  |                |
+| nickname | varchar(20)  | YES  |      | 별명    |                |
+
+- drop: 제거
+
+- RENAME: 이름변경
+
+
+
+- alter table: 테이블 변경
+  - add: 컬럼 추가
+  - drop: 컬럼 삭제
+  - change: 컬럼명 변경, 컬럼 자료형 변경
+  - modify: 컬럼 순서 바꾸기
+
+- TRUNCATE: 테이블의 모든 row 삭제
+
+
+
+### 데이터 타입
+
+| CHAR( )    | 0 to 255 고정문자 길이   |
+| ---------- | ------------------------ |
+| VARCHAR( ) | 0~65535 가변 문자 길이   |
+| TINYTEXT   | 최대 255 문자길이        |
+| TEXT       | 최대 65535 문자길이      |
+| BLOB       | 최대 65535 문자길이      |
+| MEDIUMTEXT | 최대 16777215 문자길이   |
+| MEDIUMBLOB | 최대 16777215 문자길이   |
+| LONGTEXT   | 최대 4294967295 문자길이 |
+| LONGBLOB   | 최대 4294967295 문자길이 |
+
+
+
+
+
+
+
+
+
+### 파이썬에서 사용 시
+
+```
+{
+	"host": "168.138.102.132", 
+	"user": "mcuser", 
+	"password": 
+	"Mysql11!", 
+	"database": 
+	"mcdb", 
+	"port": 3306 
+}
+```
+
+json 파일로 생성하여 업로드하여 사용
+
+
+

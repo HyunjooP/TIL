@@ -166,3 +166,73 @@ json 파일로 생성하여 업로드하여 사용
 
 
 
+
+
+필수 모듈 및 메서드
+
+- 코랩에서 json 파일 업로드 하기
+
+```
+from google.colab import files
+uploaded = files.upload()
+filename = list(uploaded.keys())[0]
+```
+
+
+
+- 모듈 불러오기
+
+```
+import json
+with open(filename) as fp:
+    config_str = fp.read()
+config = json.loads(config_str)
+config['database'] = 'mcdb'
+
+import pymysql
+conn = pymysql.connect(
+    host=config['host'], 
+    user=config['user'], 
+    password=config['password'], 
+    database=config['database'], 
+    port=config['port']
+)
+```
+
+
+
+- Connection 객체로부터 cursor 가져오기
+
+```
+cur = conn.cursor()
+```
+
+
+
+- SQL 문장을 DB 서버에 보냄
+
+```
+cur.execute(products_table)
+```
+
+
+
+```
+fetchall()		# 모든 데이터를 한꺼번에 가져올 때
+fetchone()		# 하나의 row를 가져올 때
+fetchmany(n)	# n개만큼 가져올 때	
+```
+
+
+
+
+
+
+
+- DB 연결을 닫을 때
+
+```
+cur.close()
+conn.close()
+```
+

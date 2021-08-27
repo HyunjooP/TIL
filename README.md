@@ -4,43 +4,33 @@
 
 
 
-## 1. 파이썬 프로그래밍
-
-## 2. 파이썬 라이브러리를 활용한 데이터 처리 
+## 1. 빅데이터 프로그래밍
 
 - [Python](https://github.com/HyunjooP/TIL/tree/master/PYTHON)
 - Numpy
-- Pandas
-- Matplotlib
-- folium 지도
-- Crawling
-- OpenAPI
+- [Pandas](https://github.com/HyunjooP/TIL/tree/master/Pandas)
+- [Matplotlib](https://github.com/HyunjooP/TIL/tree/master/Data%20Visualization)
+- [folium 지도](https://github.com/HyunjooP/TIL/tree/master/Data%20Visualization)
+- [Crawling](https://github.com/HyunjooP/TIL/tree/master/Web%20%2B%20Crawling)
+- [OpenAPI](https://github.com/HyunjooP/TIL/tree/master/API)
 
-## 2. 빅데이터 이해 
+## 2. 데이터 플랫폼
 
-- 빅데이터 이해
-- 빅데이터 처리 기술이해
-- 빅데이터 분석과 활용 이해
+- [cenOS](https://github.com/HyunjooP/TIL/tree/master/centOS)
+- [MySQL](https://github.com/HyunjooP/TIL/tree/master/MySQL)
+- NLP
 
-## 3. 데이터 처리
 
-- MySQL
-- 데이터 분석 사례
-- 텍스트 처리
 
-## 4. 데이터 Analytics 
+## 3. 특강
 
-- 상용 클라우드 플랫폼을 활용한 데이터 분석 
-- PowerBI를 활용한 시각화
+### 3.1 UI/UX
 
-## 5. 특강
-
-### 5.1 UI/UX
-
-### 5.2 [GitHub](https://github.com/HyunjooP/TIL/tree/master/GitHub) 
+### 3.2 [GitHub](https://github.com/HyunjooP/TIL/tree/master/GitHub) 
 
 - #### [MARKDOWN](https://github.com/HyunjooP/TIL/tree/master/MARKDOWN)
 
-### 5.3 알고리즘
+### [3.3 알고리즘](https://github.com/HyunjooP/TIL/tree/master/Algorithm)
 
-# 
+### [3.4 통계상식](https://github.com/HyunjooP/TIL/tree/master/Bigdata)
+

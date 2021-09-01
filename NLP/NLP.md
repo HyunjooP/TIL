@@ -62,3 +62,15 @@ nltk.download('stopwords')
 - pos : 품사 태깅(Part-of-speech tagging)
 - nouns : 명사 추출
 
+
+
+
+
+### 불용어(Stopwords)
+
+```
+from nltk.corpus import stopwords
+```
+
+
+

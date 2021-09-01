@@ -30,7 +30,11 @@
 
 
 
-- 모듈 호출
+- 토큰(token)이라 불리는 단위로 나누는 작업을 의미
+
+
+
+- NLTK 모듈 호출
 
 ```
 import nltk
@@ -73,4 +77,84 @@ from nltk.corpus import stopwords
 ```
 
 
+
+
+
+
+
+## 2. 언어 모델
+
+
+
+### 1) 언어 모델(Language Model)
+
+- 가장 자연스러운 단어 시퀀스를 찾아내는 모델
+
+- 확률 할당
+  - 기계 번역
+  - 오타 번역
+  - 음성 인식
+- 주어진 이전 단어들로부터 다음 단어 예측
+
+
+
+### 2) 통계적 언어 모델(Statistical Language Model, SLM)
+
+- 조건부 확률
+- 문장에 대한 확률
+- 카운트 기반의 접근
+
+
+
+### 3) N-gram 언어 모델
+
+- 모든 단어를 고려하는 것이 아닌, 일부 단어만 고려하는 접근방법
+- n개의 연속적인 단어 나열
+- n개의 단어 뭉치 단위로 끊어서 하나의 토큰으로 간주
+
+
+
+### 4) 한국어에서의 언어 모델
+
+- 한국어는 어순이 중요하지 않다
+
+
+
+
+
+### 5) 펄플렉서티(Perplexity)
+
+- 언어 모델을 비교하여 내부평가 하는 것
+
+
+
+
+
+
+
+## 4. 카운트 기반의 단어 표현
+
+- 국소표현(Local Representation): 단어 자체만 표현
+- 분산표현(Distributed Reoresentation): 주변을 참고하여 표현
+
+
+
+![image-20210901102157725](C:\Users\fromh\AppData\Roaming\Typora\typora-user-images\image-20210901102157725.png)
+
+
+
+### 1) Bag of Words(BoW)
+
+- 순서 고려하지 않고 출현 빈도에만 집중
+- 국소 표현, 단어의 빈도수를 카운트하여 단어를 수치화하는 표현 방법
+
+
+
+
+
+#### Count Vectorizer
+
+```
+from sklearn.feature_extraction.text import CountVectorizer
+```
 

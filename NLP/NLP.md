@@ -4,6 +4,10 @@
 
 
 
+**Natural Language Prosessing**
+
+
+
 - 응용 사례
 
   - 텍스트 요약 (Summly)
@@ -30,21 +34,25 @@
 
 
 
-- 토큰(token)이라 불리는 단위로 나누는 작업을 의미
+- corpus를 토큰(token)이라 불리는 단위로 나누는 작업을 의미
 
 
 
-- NLTK 모듈 호출
+#### 단어 토큰화
+
+- NLTK 모듈 호출 방법
 
 ```
 import nltk
 nltk.download('punkt')
-nltk.download('stopwords')
+nltk.download('stopwords')		# 불용어 다운로드	
 ```
 
 
 
-- KSS
+#### 문장 토큰화
+
+- KSS(Korean Sentence Splitter) 다운로드
 
 ```
 # Korean Sentence Splitter
@@ -53,28 +61,191 @@ nltk.download('stopwords')
 
 
 
-**형태소(morpheme)**
+#### 이진 분류기
+
+- 마침표가 단어의 일부분일 경우(ex. ph.D)
+- 마침표가 문장의 구분자일 경우
+
+
+
+#### 한국어 토큰화
+
+ 
+
+- KoNLPy 패키지를 주로 이용
+  - Okt(Open Korea Text)
+  - 메캅(Mecab)
+  - 코모란(Komoran)
+  - 한나눔(Hannanum)
+  - 꼬꼬마(Kkma)
+
+
+
+
+
+**형태소(morpheme), 뜻을 작은 말의 단위**
 
 - **자립 형태소** : 접사, 어미, 조사와 상관없이 자립하여 사용할 수 있는 형태소. 그 자체로 단어가 된다. 체언(명사, 대명사, 수사), 수식언(관형사, 부사), 감탄사 등이 있다.
 - **의존 형태소** : 다른 형태소와 결합하여 사용되는 형태소. 접사, 어미, 조사, 어간를 말한다.
 
 
 
-
-
 - morphs : 형태소 추출
+
+````
+from konlpy.tag import Okt  
+okt=Okt()  
+print(okt.morphs("열심히 코딩한 당신, 연휴에는 여행을 가봐요"))
+````
+
+```
+['열심히', '코딩', '한', '당신', ',', '연휴', '에는', '여행', '을', '가봐요']  
+```
+
+
+
 - pos : 품사 태깅(Part-of-speech tagging)
+
+````
+print(okt.pos("열심히 코딩한 당신, 연휴에는 여행을 가봐요"))  
+````
+
+```
+[('열심히','Adverb'), ('코딩', 'Noun'), ('한', 'Josa'), ('당신', 'Noun'), (',', 'Punctuation'), ('연휴', 'Noun'), ('에는', 'Josa'), ('여행', 'Noun'), ('을', 'Josa'), ('가봐요', 'Verb')] 
+```
+
+
+
 - nouns : 명사 추출
 
+````
+print(okt.nouns("열심히 코딩한 당신, 연휴에는 여행을 가봐요")) 
+````
+
+```
+['코딩', '당신', '연휴', '여행']  
+```
+
+
+
+### 2) 정제(Cleaning) 및 정규화(Normalization)
+
+- 정제(cleaning) : 갖고 있는 코퍼스로부터 노이즈 데이터를 제거한다.
+- 정규화(normalization) : 표현 방법이 다른 단어들을 통합시켜서 같은 단어로 만들어준다.
+
+
+
+정제 및 정규화 기법
+
+1. 표기가 다른 단어들의 통합
+
+2. 대, 소문자 통합
+
+3. 불필요한 단어 제거
+4. 정규 표현식
+
+
+
+### 3) 어간추출(Stemming)과 표제어추출(Lemmatization)
+
+- corpus의 복잡도를 줄이기 위해 하나의 단어로 일반화 시키는 것
 
 
 
 
-### 불용어(Stopwords)
+
+#### **표제어 추출(Lemmatization)**
+
+- 품사의 정보와 함께 Lemma 추출
+
+```
+n.lemmatize('dies', 'v')
+```
+
+```
+'die'
+```
+
+
+
+```
+n.lemmatize('watched', 'v')
+```
+
+```
+'watch'
+```
+
+
+
+#### 어간 추출(Stemming)
+
+- 단어의 의미(줄기?)를 추출
+
+```
+words=['formalize', 'allowance', 'electricical']
+print([s.stem(w) for w in words])
+```
+
+```
+['formal', 'allow', 'electric']
+```
+
+
+
+
+
+- 어간 추출과 표제어 추출의 차이
+
+|           | **Stemming** | **Lemmatization** |
+| --------- | ------------ | ----------------- |
+| am        | am           | be                |
+| the going | the go       | the going         |
+| having    | hav          | have              |
+
+
+
+
+
+### 4) 불용어(Stopwords)
+
+- 큰 의미가 없는 단어 토큰화
+
+- NLTK에서 불용어 활용
 
 ```
 from nltk.corpus import stopwords
 ```
+
+
+
+### 5) 정규 표현식(Regular Expression)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -157,4 +328,26 @@ from nltk.corpus import stopwords
 ```
 from sklearn.feature_extraction.text import CountVectorizer
 ```
+
+
+
+
+
+####  TF-IDF(Term Frequency-Inverse Document Frequency)
+
+
+
+
+
+
+
+
+
+## 5. 벡터의 유사도(Vector Similarity)
+
+
+
+### 1) 코사인 유사도(Cosine Similarity)
+
+
 

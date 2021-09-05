@@ -620,3 +620,16 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 
 
+
+
+
+
+
+
+실습
+
+1) 영화 유사도
+2) 스팸메일 분류
+
+
+

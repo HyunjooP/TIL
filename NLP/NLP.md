@@ -612,3 +612,11 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 
 
+### 1) 워드 임베딩
+
+
+
+### 2) 워드투벡터
+
+
+

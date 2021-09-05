@@ -549,8 +549,6 @@ from ckonlpy.tag import Twitter
 
 
 
-
-
 #### Count Vectorizer
 
 ```
@@ -559,11 +557,18 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 
 
+### 2) DTM(Document-Term Matrix, 문서 단어 행렬)
+
+- 서로 다른 문서들의 BoW들을 결합한 표현 방법
+- 다수의 문서에서 등장하는 각 단어들의 빈도를 행렬로 표현함
+
+
+
 
 
 ####  TF-IDF(Term Frequency-Inverse Document Frequency)
 
-
+- 단어 빈도-역 문서 빈도
 
 
 
@@ -573,9 +578,23 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 ## 5. 벡터의 유사도(Vector Similarity)
 
+문서들 간에 동일한 단어 또는 비슷한 단어가 얼마나 공통적으로
+
+많이 사용되었는지 수치화
+
 
 
 ### 1) 코사인 유사도(Cosine Similarity)
+
+- 두 벡터 간의 코사인 각도를 이용해 유사도를 구함
+
+
+
+#### 유사도를 이용한 추천 시스템 구현
+
+- IMDB
+
+
 
 
 

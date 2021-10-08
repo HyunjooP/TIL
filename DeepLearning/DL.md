@@ -94,3 +94,16 @@ pip install tensorflow
 - 옵티마이저(optimizer)
   - 손실함수를 기반으로 네트워크가 어떻게 업데이트될지 결정. 특정 종류의 확률적 경사 하강법(SGD)을 구현
 
+
+
+
+
+## 3) CNN(Convolution Neural Network)
+
+
+
+- 이미지의 공간정보를 유지한 상태로 학습 가능한 모델이 CNN
+- 
+
+
+
